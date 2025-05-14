@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nhận diện bệnh cây cà chua</title>
+</head>
+<body>
+    <h2>Nhận diện bệnh trên lá cây cà chua</h2>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Dự đoán</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Kết quả: {{ prediction }}</h3>
+        <img src="{{ image_url }}" alt="Ảnh đã upload" width="300">
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,7 @@
+Flask
+tensorflow
+opencv-python
+scikit-learn
+matplotlib
+numpy
+#  cài đặt thư viện: pip install -r requirements.txt
