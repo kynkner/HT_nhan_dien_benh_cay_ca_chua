@@ -8,7 +8,7 @@ import os
 
 # Cấu hình cơ bản
 train_dir = "dataset/train"
-val_dir = "dataset/validation"
+# val_dir = "dataset/validation"
 image_size = (224, 224)
 batch_size = 32
 num_classes = 10
@@ -25,13 +25,13 @@ train_generator = train_datagen.flow_from_directory(
     shuffle=True
 )
 
-validation_generator = val_datagen.flow_from_directory(
-    val_dir,
-    target_size=image_size,
-    batch_size=batch_size,
-    class_mode='categorical',
-    shuffle=False
-)
+# validation_generator = val_datagen.flow_from_directory(
+#     val_dir,
+#     target_size=image_size,
+#     batch_size=batch_size,
+#     class_mode='categorical',
+#     shuffle=False
+# )
 
 # 2. Mô hình Transfer Learning với MobileNetV2
 base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
@@ -50,8 +50,8 @@ model.compile(optimizer=Adam(), loss='categorical_crossentropy', metrics=['accur
 # 5. Train model
 model.fit(
     train_generator,
-    epochs=10,
-    validation_data=validation_generator,
+    epochs=30,
+    # validation_data = validation_generator,
 )
 
 # 6. Lưu model
